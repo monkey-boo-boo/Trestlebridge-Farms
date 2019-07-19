@@ -25,5 +25,9 @@ namespace Trestlebridge.Models.Animals
         {
             return _CompostProduced;
         }
+        public override string ToString()
+        {
+            return $"Goat {this._shortId}. Blrrrraaaaaa!";
+        }
     }
 }

@@ -27,5 +27,9 @@ namespace Trestlebridge.Models.Animals
         {
             Console.WriteLine($"Sheep {this._shortId} just ate {this.GrassPerDay}kg of grass");
         }
+        public override string ToString()
+        {
+            return $"Sheep {this._shortId}. Baa baa baa!";
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Trestlebridge.Models.Animals
 
         private Guid _id = Guid.NewGuid();
 
-        private int _eggProduced = 6;
+        private int _eggsProduced = 6;
         private double _feathersProduced = .75;
 
         private string _shortId
@@ -37,7 +37,7 @@ namespace Trestlebridge.Models.Animals
 
         public int Gather()
         {
-            return _eggProduced;
+            return _eggsProduced;
         }
 
         public double Pluck()
