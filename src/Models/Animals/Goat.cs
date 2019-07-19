@@ -7,7 +7,7 @@ namespace Trestlebridge.Models.Animals
     {
         private Guid _id = Guid.NewGuid();
         private double _CompostProduced = 7.5;
-        public string Type { get; set; }
+        public string Type { get; } = "Goat";
 
         public double GrassPerDay { get; set; } = 4.1;
         private string _shortId {
