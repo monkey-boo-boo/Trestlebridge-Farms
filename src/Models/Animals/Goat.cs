@@ -7,7 +7,7 @@ namespace Trestlebridge.Models.Animals
     {
         private Guid _id = Guid.NewGuid();
         private double _CompostProduced = 7.5;
-        public string Type { get; } = "Goat";
+        public string Name { get; } = "Goat";
 
         public double GrassPerDay { get; set; } = 4.1;
         private string _shortId {
@@ -24,6 +24,10 @@ namespace Trestlebridge.Models.Animals
         public double Shovel()
         {
             return _CompostProduced;
+        }
+        public override string ToString()
+        {
+            return $"Goat {this._shortId}. Blrrrraaaaaa!";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Animals
         private Guid _id = Guid.NewGuid();
         private double _meatProduced = 5;
 
-        public string Type { get; } = "Sheep";
+        public string Name { get; } = "Sheep";
 
         public double GrassPerDay { get; set; } = 4;
 
@@ -26,6 +26,10 @@ namespace Trestlebridge.Models.Animals
         public void Graze()
         {
             Console.WriteLine($"Sheep {this._shortId} just ate {this.GrassPerDay}kg of grass");
+        }
+        public override string ToString()
+        {
+            return $"Sheep {this._shortId}. Baa baa baa!";
         }
     }
 }
