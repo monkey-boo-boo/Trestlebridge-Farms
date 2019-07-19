@@ -21,7 +21,7 @@ namespace Trestlebridge.Models.Animals
             }
         }
 
-        public string Type { get; } = "Chicken";
+        public string Name { get; } = "Chicken";
         public double SeedPerDay { get; set; }
 
         // Methods

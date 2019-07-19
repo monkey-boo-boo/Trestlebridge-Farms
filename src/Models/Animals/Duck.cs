@@ -20,7 +20,7 @@ namespace Trestlebridge.Models.Animals
             }
         }
 
-        public string Type { get; } = "Duck";
+        public string Name { get; } = "Duck";
         public double SeedPerDay { get; set; }
 
         // Methods
