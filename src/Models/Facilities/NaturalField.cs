@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
-
+using System.Linq;
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -24,11 +24,21 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-
         public int PlantCount()
         {
             return _plants.Count;
         }
+
+        public void GetPlantTypes()
+        {
+            var grouping = _plants
+                .GroupBy(plant => plant.Name);
+            foreach (var plant in grouping)
+            {
+                Console.Write($" {plant.Key}s: {plant.Count()} ");
+            }
+        }
+
 
         public void AddResource(ICompostProducing plant)
         {
