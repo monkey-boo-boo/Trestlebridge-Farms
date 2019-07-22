@@ -14,7 +14,12 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
+
+                Console.Write($"{i + 1}. Grazing Field --{farm.GrazingFields[i].AnimalCount()} animal(s)--");
+                farm.GrazingFields[i].GetAnimalTypes();
+
                 Console.WriteLine($"{i + 1}. Grazing Field currently contains {farm.GrazingFields[i].AnimalCount()} animal(s). The capacity is {farm.GrazingFields[i].Capacity} animals");
+
             }
 
             Console.WriteLine();
