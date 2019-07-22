@@ -29,7 +29,7 @@ namespace Trestlebridge.Actions
 
             while (farm.GrazingFields[choice].Capacity == farm.GrazingFields[choice].AnimalCount())
             {
-                Console.WriteLine("To many animals. Choose new field");
+                Console.WriteLine("Too many animals. Choose new field");
                 choice = Int32.Parse(Console.ReadLine()) - 1;
 
             }
