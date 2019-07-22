@@ -14,7 +14,7 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                Console.WriteLine($"{i + 1}. Grazing Field currently contains {farm.GrazingFields[i].AnimalCount()} animal(s). The capacity is {farm.GrazingFields[i].Capacity} animals");
             }
 
             Console.WriteLine();
@@ -25,17 +25,20 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine()) - 1;
 
-            // while the field is at capacity warning message will be displayed
 
-            while (farm.GrazingFields[choice].Capacity == farm.GrazingFields[choice].AnimalCount())
+            if (farm.GrazingFields[choice].Capacity == farm.GrazingFields[choice].AnimalCount())
             {
-                Console.WriteLine("Too many animals. Choose new field");
-                choice = Int32.Parse(Console.ReadLine()) - 1;
-
+                Console.WriteLine("Too many animals. Press any key to continue");
+                Console.Write("> ");
+                Console.ReadLine();
             }
-            farm.GrazingFields[choice].AddResource(animal);
-            Console.WriteLine($"Your Animal was placed in the Grazing Field ! Press any key to continue");
-            Console.ReadLine();
+            else
+            {
+                farm.GrazingFields[choice].AddResource(animal);
+                Console.WriteLine($"Your Animal was placed in the Grazing Field ! Press any key to continue");
+                Console.ReadLine();
+            }
+
             /*
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.
