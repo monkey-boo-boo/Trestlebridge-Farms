@@ -12,30 +12,56 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
 
-            for (int i = 0; i < farm.ChickenHouses.Count; i++)
+            if (farm.ChickenHouses.Count == 0)
             {
-                Console.WriteLine($"{i + 1}. Chicken House");
+                Console.WriteLine("No locations available. Press any key to continue");
+                Console.Write("> ");
+                Console.ReadLine();
             }
-
-            Console.WriteLine();
-
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the chicken where?");
-
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine()) - 1;
-
-            // while the house is at capacity warning message will be displayed
-
-            while (farm.ChickenHouses[choice].Capacity == farm.ChickenHouses[choice].AnimalCount())
+            else
             {
-                Console.WriteLine("Too many chickens. Choose new house");
-                choice = Int32.Parse(Console.ReadLine()) - 1;
+                for (int i = 0; i < farm.ChickenHouses.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. Chicken House");
+                }
 
+                Console.WriteLine();
+
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the chicken where?");
+
+                Console.Write("> ");
+                int choice = 0;
+                while (!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("That was invalid. Enter a valid selection.");
+                }
+                // int choice = Int32.Parse(Console.ReadLine()) - 1;
+
+
+                if (choice > farm.ChickenHouses.Count)
+                {
+                    Console.WriteLine("Incorrect Selection. Press any key to continue");
+                    Console.Write("> ");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    if (farm.ChickenHouses[choice - 1].Capacity == farm.ChickenHouses[choice - 1].AnimalCount())
+                    {
+                        Console.WriteLine("Too many animals. Press any key to continue");
+                        Console.Write("> ");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        farm.ChickenHouses[choice - 1].AddResource(chicken);
+                        Console.WriteLine($"Your Animal was placed in the chicken house ! Press any key to continue");
+                        Console.Write("> ");
+                        Console.ReadLine();
+                    }
+                }
             }
-            farm.ChickenHouses[choice].AddResource(chicken);
-            Console.WriteLine($"Your chicken was placed in the chicken house! Press any key to continue");
-            Console.ReadLine();
         }
     }
 }

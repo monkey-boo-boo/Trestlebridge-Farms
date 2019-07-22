@@ -15,7 +15,7 @@ namespace Trestlebridge.Models.Facilities
         
         private Guid _id = Guid.NewGuid();
 
-        private List<ICompostProducing> _animals = new List<ICompostProducing>();
+        private List<ICompostProducing> _plants = new List<ICompostProducing>();
 
         public double Capacity
         {
@@ -23,6 +23,9 @@ namespace Trestlebridge.Models.Facilities
             {
                 return _capacity;
             }
+        }
+        public int PlantCount(){
+            return _plants.Count;
         }
 
         public void AddResource(ICompostProducing animal)
@@ -42,8 +45,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field {shortId} has {this._animals.Count} plants\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Natural field {shortId} has {this._plants.Count} plants\n");
+            this._plants.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
