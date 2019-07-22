@@ -13,8 +13,9 @@ namespace Trestlebridge.Models.Plants
             return _CompostProduced;
         }
 
-        public override string ToString () {
-            return $"Sesame. Yum!";
+        public override string ToString()
+        {
+            return $"Wildflowers. Totes gorge!";
         }
     }
 }

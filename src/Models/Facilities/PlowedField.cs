@@ -10,12 +10,12 @@ namespace Trestlebridge.Models.Facilities
     {
         private int _capacity = 65;
 
-        public int Rows {get; set;} = 13;
-        public int PlantsPerRow {get; set;} = 5;
+        public int Rows { get; set; } = 13;
+        public int PlantsPerRow { get; set; } = 5;
 
         private Guid _id = Guid.NewGuid();
 
-        private List<ISeedProducing> _animals = new List<ISeedProducing>();
+        private List<ISeedProducing> _plants = new List<ISeedProducing>();
 
         public double Capacity
         {
@@ -25,10 +25,15 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(ISeedProducing animal)
+        public int PlantCount()
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            return _plants.Count;
+        }
+
+
+        public void AddResource(ISeedProducing plant)
+        {
+            _plants.Add(plant);
         }
 
         public void AddResource(List<ISeedProducing> animals)
@@ -42,8 +47,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Plowed field {shortId} has {this._animals.Count} plants\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Plowed field {shortId} has {this._plants.Count} plants\n");
+            this._plants.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
