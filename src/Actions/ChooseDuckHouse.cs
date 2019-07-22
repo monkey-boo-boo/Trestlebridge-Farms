@@ -53,7 +53,7 @@ namespace Trestlebridge.Actions
                     }
                     else
                     {
-                        farm.DuckHouses[choice].AddResource(duck);
+                        farm.DuckHouses[choice - 1].AddResource(duck);
                         Console.WriteLine($"Your Animal was placed in the Grazing Field ! Press any key to continue");
                         Console.ReadLine();
                     }
