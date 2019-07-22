@@ -22,9 +22,8 @@ namespace Trestlebridge.Actions
             {
                 for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Chicken House");
+                    Console.WriteLine($"{i + 1}. Chicken House (contains {farm.ChickenHouses[i].AnimalCount()} chickens)");
                 }
-
                 Console.WriteLine();
 
                 // How can I output the type of animal chosen here?

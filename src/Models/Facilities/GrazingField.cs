@@ -3,16 +3,27 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Actions;
+using System.Linq;
 
 namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 2;
+        private int _capacity = 50;
 
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
+
+        public void GetAnimalTypes()
+        {
+            var grouping = _animals
+                .GroupBy(animal => animal.Name);
+                foreach (var animal in grouping)
+                {
+                    Console.Write($" {animal.Key}s: {animal.Count()} ");
+                }
+        }
 
         public double Capacity
         {
