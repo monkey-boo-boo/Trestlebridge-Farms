@@ -2,6 +2,8 @@ namespace Trestlebridge.Interfaces
 {
     public interface ICompostProducing
     {
-        double Shovel ();
+        string Name { get; }
+
+        double Shovel();
     }
 }

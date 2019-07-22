@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions
 {
     public class ChooseNaturalField
-   {
+    {
         public static void CollectInput(Farm farm, ICompostProducing plant)
         {
             Console.Clear();
@@ -22,7 +22,9 @@ namespace Trestlebridge.Actions
             {
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Natural field");
+                    Console.WriteLine($"{i + 1}. Natural Field currently contains {farm.NaturalFields[i].PlantCount()} plants(s). The capacity is {farm.NaturalFields[i].Capacity} plants");
+                    farm.NaturalFields[i].GetPlantTypes();
+                    Console.WriteLine();
                 }
 
                 Console.WriteLine();
@@ -47,14 +49,14 @@ namespace Trestlebridge.Actions
                 {
                     if (farm.NaturalFields[choice - 1].Capacity == farm.NaturalFields[choice - 1].PlantCount())
                     {
-                        Console.WriteLine("Too many animals. Press any key to continue");
+                        Console.WriteLine("Too many plants. Press any key to continue");
                         Console.Write("> ");
                         Console.ReadLine();
                     }
                     else
                     {
                         farm.NaturalFields[choice - 1].AddResource(plant);
-                        Console.WriteLine($"Your Animal was placed in the Grazing Field ! Press any key to continue");
+                        Console.WriteLine($"Your plant was placed in the Natural Field ! Press any key to continue");
                         Console.ReadLine();
                     }
                 }

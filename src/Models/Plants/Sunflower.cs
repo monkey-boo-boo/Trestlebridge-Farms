@@ -18,5 +18,10 @@ namespace Trestlebridge.Models.Plants
         {
             return _CompostProduced;
         }
+
+        public override string ToString()
+        {
+            return $"Sunflower. Chew 'em and spit 'em out!";
+        }
     }
 }

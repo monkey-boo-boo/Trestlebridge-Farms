@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions
 {
     public class ChooseGrazingField
-   {
+    {
         public static void CollectInput(Farm farm, IGrazing animal)
         {
             Console.Clear();
@@ -25,6 +25,7 @@ namespace Trestlebridge.Actions
 
                     Console.WriteLine($"{i + 1}. Grazing Field currently contains {farm.GrazingFields[i].AnimalCount()} animal(s). The capacity is {farm.GrazingFields[i].Capacity} animals");
                     farm.GrazingFields[i].GetAnimalTypes();
+                    Console.WriteLine();
 
                 }
 

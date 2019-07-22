@@ -10,8 +10,10 @@ namespace Trestlebridge.Models.Animals
         public string Name { get; } = "Goat";
 
         public double GrassPerDay { get; set; } = 4.1;
-        private string _shortId {
-            get {
+        private string _shortId
+        {
+            get
+            {
                 return this._id.ToString().Substring(this._id.ToString().Length - 6);
             }
         }

@@ -7,16 +7,16 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
-    public class PurchaseSeed
+    public class SelectFieldType
     {
         public static void CollectInput(Farm farm)
         {
-            Console.WriteLine("1. Sesame");
-            Console.WriteLine("2. Sunflower");
-            Console.WriteLine("3. Wildflower");
+            Console.Clear();
+            Console.WriteLine("1. Plowed Field");
+            Console.WriteLine("2. Natural Field");
 
             Console.WriteLine();
-            Console.WriteLine("Which seeds are you buying today?");
+            Console.WriteLine("In which type of field would you like to plant the sunflower?");
 
             Console.Write("> ");
             string choice = Console.ReadLine();
@@ -24,13 +24,10 @@ namespace Trestlebridge.Actions
             switch (Int32.Parse(choice))
             {
                 case 1:
-                    ChoosePlowedField.CollectInput(farm, new Sesame());
+                    ChoosePlowedField.CollectInput(farm, new Sunflower());
                     break;
                 case 2:
-                    SelectFieldType.CollectInput(farm);
-                    break;
-                case 3:
-                    ChooseNaturalField.CollectInput(farm, new Wildflower());
+                    ChooseNaturalField.CollectInput(farm, new Sunflower());
                     break;
                 default:
                     break;

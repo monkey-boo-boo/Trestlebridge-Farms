@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions
 {
     public class ChoosePlowedField
-   {
+    {
         public static void CollectInput(Farm farm, ISeedProducing plant)
         {
             Console.Clear();
@@ -22,7 +22,9 @@ namespace Trestlebridge.Actions
             {
                 for (int i = 0; i < farm.PlowedFields.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Plowed Field");
+                    Console.WriteLine($"{i + 1}. Plowed Field currently contains {farm.PlowedFields[i].PlantCount()} plant(s). The capacity is {farm.PlowedFields[i].Capacity} plants");
+                    farm.PlowedFields[i].GetPlantTypes();
+                    Console.WriteLine();
                 }
 
                 Console.WriteLine();
@@ -47,14 +49,14 @@ namespace Trestlebridge.Actions
                 {
                     if (farm.PlowedFields[choice - 1].Capacity == farm.PlowedFields[choice - 1].PlantCount())
                     {
-                        Console.WriteLine("Too many animals. Press any key to continue");
+                        Console.WriteLine("Too many plants. Press any key to continue");
                         Console.Write("> ");
                         Console.ReadLine();
                     }
                     else
                     {
                         farm.PlowedFields[choice - 1].AddResource(plant);
-                        Console.WriteLine($"Your Animal was placed in the Grazing Field ! Press any key to continue");
+                        Console.WriteLine($"Your plant was placed in the Plowed Field ! Press any key to continue");
                         Console.ReadLine();
                     }
                 }

@@ -55,7 +55,7 @@ namespace Trestlebridge.Actions
                     else
                     {
                         farm.ChickenHouses[choice - 1].AddResource(chicken);
-                        Console.WriteLine($"Your Animal was placed in the chicken house ! Press any key to continue");
+                        Console.WriteLine($"Your Chicken was placed in the Chicken House ! Press any key to continue");
                         Console.Write("> ");
                         Console.ReadLine();
                     }
