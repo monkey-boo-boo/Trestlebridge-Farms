@@ -6,13 +6,13 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<IPecking>
+    public class DuckHouse : IFacility<IDuck>
     {
         private int _capacity = 12;
 
         private Guid _id = Guid.NewGuid();
 
-        private List<IPecking> _animals = new List<IPecking>();
+        private List<IDuck> _animals = new List<IDuck>();
 
         public double Capacity
         {
@@ -22,13 +22,17 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IPecking animal)
+        public int AnimalCount()
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            return _animals.Count;
         }
 
-        public void AddResource(List<IPecking> animals)
+        public void AddResource(IDuck animal)
+        {
+            _animals.Add(animal);
+        }
+
+        public void AddResource(List<IDuck> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();
@@ -39,7 +43,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Pecking field {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Duck house {shortId} has {this._animals.Count} animals\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
