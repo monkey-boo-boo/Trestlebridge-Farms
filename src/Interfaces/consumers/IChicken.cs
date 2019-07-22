@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IPecking
+    public interface IChicken
     {
         double SeedPerDay { get; set; }
         void Peck();

@@ -6,13 +6,13 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<IPecking>
+    public class DuckHouse : IFacility<IDuck>
     {
         private int _capacity = 12;
 
         private Guid _id = Guid.NewGuid();
 
-        private List<IPecking> _animals = new List<IPecking>();
+        private List<IDuck> _animals = new List<IDuck>();
 
         public double Capacity
         {
@@ -22,13 +22,17 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IPecking animal)
+        public int AnimalCount()
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            return _animals.Count;
         }
 
-        public void AddResource(List<IPecking> animals)
+        public void AddResource(IDuck animal)
+        {
+            _animals.Add(animal);
+        }
+
+        public void AddResource(List<IDuck> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();
