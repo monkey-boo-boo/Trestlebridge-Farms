@@ -15,12 +15,11 @@ namespace Trestlebridge.Models
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
 
-
         /*
             This method must specify the correct product interface of the
             resource being purchased.
          */
-        public void PurchaseResource<T> (IResource resource, int index)
+        public void PurchaseResource<T>(IResource resource, int index)
         {
             Console.WriteLine(typeof(T).ToString());
             switch (typeof(T).ToString())
@@ -32,23 +31,23 @@ namespace Trestlebridge.Models
                     break;
             }
         }
-        public void AddGrazingField (GrazingField field)
+        public void AddGrazingField(GrazingField field)
         {
             GrazingFields.Add(field);
         }
-        public void AddPlowedField (PlowedField field)
+        public void AddPlowedField(PlowedField field)
         {
             PlowedFields.Add(field);
         }
-        public void AddNaturalField (NaturalField field)
+        public void AddNaturalField(NaturalField field)
         {
             NaturalFields.Add(field);
         }
-        public void AddDuckHouse (DuckHouse house)
+        public void AddDuckHouse(DuckHouse house)
         {
             DuckHouses.Add(house);
         }
-        public void AddChickenHouse (ChickenHouse house)
+        public void AddChickenHouse(ChickenHouse house)
         {
             ChickenHouses.Add(house);
         }

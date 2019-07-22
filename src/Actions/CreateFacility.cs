@@ -54,10 +54,12 @@ namespace Trestlebridge.Actions
                     Console.WriteLine();
                     string input5 = Console.ReadLine();
                     break;
-                    
+
                 default:
                     break;
             }
+
+            Console.Write("Created a Field");
         }
     }
 }

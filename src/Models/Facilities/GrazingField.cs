@@ -2,13 +2,13 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
-
+using Trestlebridge.Actions;
 
 namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 50;
+        private int _capacity = 2;
 
         private Guid _id = Guid.NewGuid();
 
@@ -22,11 +22,16 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public int AnimalCount()
+        {
+            return _animals.Count;
+        }
+
         public void AddResource(IGrazing animal)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            _animals.Add(animal);
         }
+
 
         public void AddResource(List<IGrazing> animals)
         {
