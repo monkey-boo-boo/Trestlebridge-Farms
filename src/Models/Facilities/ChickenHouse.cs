@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
-
+using System.Linq;
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -24,6 +24,14 @@ namespace Trestlebridge.Models.Facilities
         public int AnimalCount()
         {
             return _animals.Count;
+        }
+
+        public List<IMeatProducing> GetMeatProducers()
+        {
+            var grouping = _animals
+            .OfType<IMeatProducing>().ToList();
+
+            return grouping;
         }
 
         public void AddResource(IChicken animal)
