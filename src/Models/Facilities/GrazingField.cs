@@ -19,10 +19,19 @@ namespace Trestlebridge.Models.Facilities
         {
             var grouping = _animals
                 .GroupBy(animal => animal.Name);
-                foreach (var animal in grouping)
-                {
-                    Console.Write($" {animal.Key}s: {animal.Count()} ");
-                }
+            foreach (var animal in grouping)
+            {
+                Console.Write($" {animal.Key}s: {animal.Count()}");
+            }
+        }
+
+        public List<IMeatProducing> GetMeatProducers()
+        {
+
+            var grouping = _animals
+            .OfType<IMeatProducing>().ToList();
+
+            return grouping;
         }
 
         public double Capacity
