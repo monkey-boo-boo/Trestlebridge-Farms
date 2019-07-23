@@ -33,6 +33,23 @@ namespace Trestlebridge.Models.Facilities
 
             return grouping;
         }
+        public List<string> GetAnimalsForProcessing()
+        {
+            var grouping = _animals
+                .GroupBy(animal => animal.Name);
+            int index = 1;
+
+            var group_names = new List<string>();
+
+            foreach (var animal in grouping)
+            {
+                group_names.Add(animal.Key);
+                Console.Write($"{index}. {animal.Key}s: {animal.Count()}");
+                Console.WriteLine();
+                index++;
+            }
+            return group_names;
+        }
 
         public void AddResource(IChicken animal)
         {

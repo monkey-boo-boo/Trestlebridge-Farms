@@ -24,6 +24,27 @@ namespace Trestlebridge.Models.Facilities
                 Console.Write($" {animal.Key}s: {animal.Count()}");
             }
         }
+        public List<string> GetAnimalsForProcessing()
+        {
+            var grouping = _animals.GroupBy(animal => animal.Name);
+            int bullet_point = 1;   
+            //List of group names
+            var group_names = new List<string>();
+
+            foreach (var animal in grouping)
+            {
+                //Adding animal.key to list of group_names
+                group_names.Add(animal.Key);
+
+                Console.Write($"{bullet_point}. {animal.Key}s: {animal.Count()}");
+                Console.WriteLine();
+                bullet_point++;
+            }
+            return group_names;
+        }
+        public void ExecuteAndSlaughterAnimal(){
+
+        }
 
         public List<IMeatProducing> GetMeatProducers()
         {

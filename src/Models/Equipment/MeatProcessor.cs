@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Facilities;
 
-namespace Trestlebridge.Interfaces
+namespace Trestlebridge
 {
     public class MeatProcessor
     {
@@ -11,13 +12,15 @@ namespace Trestlebridge.Interfaces
         private int _capacity = 7;
 
 
-        public double Capacity
+        public int Capacity
         {
             get
             {
                 return _capacity;
             }
         }
+
+
 
         // public List<IMeatProducing> meatprocessor = new List<IMeatProducing>();
 
