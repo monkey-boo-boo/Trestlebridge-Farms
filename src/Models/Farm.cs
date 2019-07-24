@@ -15,6 +15,8 @@ namespace Trestlebridge.Models
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
 
+        //One list to rule them all
+        
 
         /*
             This method must specify the correct product interface of the
