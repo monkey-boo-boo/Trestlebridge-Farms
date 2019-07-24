@@ -51,17 +51,26 @@ namespace Trestlebridge.Actions
             Console.WriteLine("Which resource should be processed?");
             Console.Write(">");
             var input = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Input : " + input);
-            Console.WriteLine($"How many {groupsByName.ElementAt(input - 1)}s should be processed?");
+            // Console.WriteLine("Input : " + input);
+            string animal_type_to_execute = groupsByName.ElementAt(input - 1);
+            Console.WriteLine($"How many {animal_type_to_execute}s should be processed? (machine can process up to 7)");
             Console.Write(">");
             var number_to_execute = Int32.Parse(Console.ReadLine());
             
             //Hardcoded due to time limitations
             if(number_to_execute > 7){
-                Console.WriteLine("Equipment cannot handle more than 7 processes. Press any Key");
+                Console.WriteLine("Equipment cannot handle more than 7 processes.");
             }
             else{
-                Console.WriteLine("The End.");
+                if(animal_type_to_execute == "Chicken"){
+                    // Console.WriteLine("ITS A CHICKEN");
+                    farm.ChickenHouses[selection - farm.GrazingFields.Count - 1].ExecuteAndSlaughterAnimal(number_to_execute);
+                }
+                else {
+                    // Console.WriteLine("Its a COW");
+                    farm.GrazingFields[selection - 1].ExecuteAndSlaughterAnimal(number_to_execute, animal_type_to_execute);
+                }
+                
             }
         }
     }

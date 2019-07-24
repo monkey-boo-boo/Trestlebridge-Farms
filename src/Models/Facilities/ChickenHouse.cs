@@ -25,6 +25,16 @@ namespace Trestlebridge.Models.Facilities
         {
             return _animals.Count;
         }
+        public void ExecuteAndSlaughterAnimal(int numberToKill)
+        {
+            for (int i = 0; i < numberToKill; i++)
+            {
+
+                Console.WriteLine($"Removing 1 Chicken");
+                _animals.RemoveAt(i);
+
+            }
+        }
 
         public List<IMeatProducing> GetMeatProducers()
         {

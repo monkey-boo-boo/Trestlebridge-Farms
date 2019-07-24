@@ -10,8 +10,6 @@ namespace Trestlebridge
         public double meatProduced { get; set; } = 0;
 
         private int _capacity = 7;
-
-
         public int Capacity
         {
             get
@@ -19,11 +17,6 @@ namespace Trestlebridge
                 return _capacity;
             }
         }
-
-
-
         // public List<IMeatProducing> meatprocessor = new List<IMeatProducing>();
-
-
     }
 }

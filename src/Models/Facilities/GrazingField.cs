@@ -17,8 +17,7 @@ namespace Trestlebridge.Models.Facilities
 
         public void GetAnimalTypes()
         {
-            var grouping = _animals
-                .GroupBy(animal => animal.Name);
+            var grouping = _animals.GroupBy(animal => animal.Name);
             foreach (var animal in grouping)
             {
                 Console.Write($" {animal.Key}s: {animal.Count()}");
@@ -42,8 +41,15 @@ namespace Trestlebridge.Models.Facilities
             }
             return group_names;
         }
-        public void ExecuteAndSlaughterAnimal(){
+        public void ExecuteAndSlaughterAnimal(int numberToKill, string animalToKill){
 
+            for(int i = 0; i < _animals.Count; i++)
+            {
+                if (_animals[i].Name == animalToKill){
+                    Console.WriteLine($"Removing {animalToKill}");
+                    _animals.RemoveAt(i);
+                }                
+            }
         }
 
         public List<IMeatProducing> GetMeatProducers()
