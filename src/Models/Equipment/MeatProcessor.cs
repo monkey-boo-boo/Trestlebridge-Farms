@@ -8,7 +8,6 @@ namespace Trestlebridge
     public class MeatProcessor
     {
         public double meatProduced { get; set; } = 0;
-
         private int _capacity = 7;
         public int Capacity
         {

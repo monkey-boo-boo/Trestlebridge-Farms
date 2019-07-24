@@ -20,20 +20,31 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             string choice = Console.ReadLine();
-
-            switch (Int32.Parse(choice))
+            int num = -1;
+            if (choice != "" && (int.TryParse(choice, out num)))
             {
-                case 1:
-                    ChoosePlowedField.CollectInput(farm, new Sesame());
-                    break;
-                case 2:
-                    SelectFieldType.CollectInput(farm);
-                    break;
-                case 3:
-                    ChooseNaturalField.CollectInput(farm, new Wildflower());
-                    break;
-                default:
-                    break;
+
+                switch (Int32.Parse(choice))
+                {
+                    case 1:
+                        ChoosePlowedField.CollectInput(farm, new Sesame());
+                        break;
+                    case 2:
+                        SelectFieldType.CollectInput(farm);
+                        break;
+                    case 3:
+                        ChooseNaturalField.CollectInput(farm, new Wildflower());
+                        break;
+                    default:
+                        Console.WriteLine("Invlaid selection. Press any key to continute.");
+                        string input7 = Console.ReadLine();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invlaid selection. Press any key to continute.");
+                string input8 = Console.ReadLine();
             }
         }
     }

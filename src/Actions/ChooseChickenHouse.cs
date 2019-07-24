@@ -14,7 +14,7 @@ namespace Trestlebridge.Actions
 
             if (farm.ChickenHouses.Count == 0)
             {
-                Console.WriteLine("No locations available. Press any key to continue");
+                Console.WriteLine("No chicken houses available. Buy a chicken house! Press any key to continue");
                 Console.Write("> ");
                 Console.ReadLine();
             }
