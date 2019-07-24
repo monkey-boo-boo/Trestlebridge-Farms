@@ -35,7 +35,7 @@ namespace Trestlebridge.Actions
             });
 
             Console.WriteLine("Which facility has the animals you would like to SLAUGHTER");
-            Console.Write($">_");
+            Console.Write($">");
             var selection = Int32.Parse(Console.ReadLine());
 
             var groupsByName = new List<string> ();
@@ -69,8 +69,7 @@ namespace Trestlebridge.Actions
                 else {
                     // Console.WriteLine("Its a COW");
                     farm.GrazingFields[selection - 1].ExecuteAndSlaughterAnimal(number_to_execute, animal_type_to_execute);
-                }
-                
+                }  
             }
         }
     }

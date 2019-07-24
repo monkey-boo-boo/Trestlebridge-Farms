@@ -14,7 +14,7 @@ namespace Trestlebridge.Actions
 
             if (farm.GrazingFields.Count == 0)
             {
-                Console.WriteLine("No locations available. Press any key to continue");
+                Console.WriteLine("No grazing fields available. Buy a grazing field! Press any key to continue");
                 Console.Write("> ");
                 Console.ReadLine();
             }
@@ -22,15 +22,12 @@ namespace Trestlebridge.Actions
             {
                 for (int i = 0; i < farm.GrazingFields.Count; i++)
                 {
-
                     Console.WriteLine($"{i + 1}. Grazing Field currently contains {farm.GrazingFields[i].AnimalCount()} animal(s). The capacity is {farm.GrazingFields[i].Capacity} animals");
                     farm.GrazingFields[i].GetAnimalTypes();
                     Console.WriteLine();
-
                 }
-
+                                
                 Console.WriteLine();
-
                 Console.WriteLine($"Place the animal where?");
 
                 Console.Write("> ");

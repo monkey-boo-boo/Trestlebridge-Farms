@@ -14,7 +14,7 @@ namespace Trestlebridge.Actions
 
             if (farm.DuckHouses.Count == 0)
             {
-                Console.WriteLine("No locations available. Press any key to continue");
+                Console.WriteLine("No duck houses available. Buy a duck house! Press any key to continue");
                 Console.Write("> ");
                 Console.ReadLine();
             }
@@ -22,7 +22,7 @@ namespace Trestlebridge.Actions
             {
                 for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Duck House (contains {farm.DuckHouses[i].AnimalCount()} ducks)");
+                    Console.WriteLine($"{i + 1}. Duck House (contains {farm.DuckHouses[i].AnimalCount()} ducks). The capacity is 12");
                 }
 
                 Console.WriteLine();

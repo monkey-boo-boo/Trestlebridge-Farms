@@ -42,6 +42,8 @@ namespace Trestlebridge
                 Console.Write("> ");
                 string option = Console.ReadLine();
 
+                
+
                 if (option == "1")
                 {
                     DisplayBanner();
